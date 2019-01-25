@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">DatabaseDemo</string>
+    <string name="add">Add</string>
+    <string name="module_code_e_g_co5225">Module Code e.g. CO5225</string>
+    <string name="module_name">Module name</string>
+    <string name="title">Title</string>
+    <string name="weight">Weight</string>
+    <string name="new_module">New Module</string>
+    <string name="add_component">Add Component</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="module_exists">Unable to add module, does the module already exist?</string>
+    <string name="invalid_module_code">Module code should be two upper case letters followed by four numbers</string>
+    <string name="update">Update</string>
+    <string name="edit_modules">Edit Modules</string>
+    <string name="add_assignment">Add Assignment</string>
+    <string name="edit_assignment">Edit Assignment</string>
+    <string name="deadlines">Deadlines</string>
+    <string name="modules">Modules</string>
+</resources>
