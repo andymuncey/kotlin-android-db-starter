@@ -1,4 +1,4 @@
-package com.tinyappco.databasedemo
+package com.tinyappco.assignments
 
 import java.io.Serializable
 
@@ -9,7 +9,7 @@ class Module (val code: String, var name: String) : Comparable<Module>, Serializ
 
     override fun equals(other: Any?): Boolean {
         if (other is Module){
-            return code.equals(other.code)
+            return code == other.code
         }
         return super.equals(other)
     }

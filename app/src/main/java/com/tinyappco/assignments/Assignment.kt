@@ -1,4 +1,4 @@
-package com.tinyappco.databasedemo
+package com.tinyappco.assignments
 
 import java.io.Serializable
 import java.util.*

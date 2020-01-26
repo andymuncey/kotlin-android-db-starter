@@ -1,4 +1,4 @@
-package com.tinyappco.databasedemo
+package com.tinyappco.assignments
 
 import android.widget.DatePicker
 import java.text.SimpleDateFormat

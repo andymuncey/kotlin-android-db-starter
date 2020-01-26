@@ -1,10 +1,9 @@
-package com.tinyappco.databasedemo
+package com.tinyappco.assignments
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_assignment_details.*
 import java.util.*
 
