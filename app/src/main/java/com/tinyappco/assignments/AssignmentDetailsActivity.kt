@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import kotlinx.android.synthetic.main.activity_assignment_details.*
+import com.tinyappco.assignments.databinding.ActivityAssignmentDetailsBinding
 import java.util.*
 
 class AssignmentDetailsActivity : AppCompatActivity() {
@@ -14,9 +14,13 @@ class AssignmentDetailsActivity : AppCompatActivity() {
 
     private var existingAssignment : Assignment? = null
 
+    private lateinit var binding: ActivityAssignmentDetailsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_assignment_details)
+        binding = ActivityAssignmentDetailsBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
 
 
@@ -25,14 +29,14 @@ class AssignmentDetailsActivity : AppCompatActivity() {
         val assignment = intent.getSerializableExtra("assignment")
         if (assignment is Assignment){
             existingAssignment = assignment
-            etTitle.setText(assignment.title)
-            etWeight.setText(assignment.weight.toString())
+            binding.etTitle.setText(assignment.title)
+            binding.etWeight.setText(assignment.weight.toString())
 
             val cal = Calendar.getInstance()
             cal.time = assignment.deadline
-            datePicker.init(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH), null)
+            binding.datePicker.init(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH), null)
 
-            btnAdd.text = getString(R.string.update)
+            binding.btnAdd.text = getString(R.string.update)
             title = getString(R.string.edit_assignment)
         } else {
             title = getString(R.string.add_assignment)

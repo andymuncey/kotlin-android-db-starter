@@ -8,21 +8,24 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import kotlinx.android.synthetic.main.activity_module_list.*
+import com.tinyappco.assignments.databinding.ActivityModuleListBinding
 
 class ModuleListActivity : AppCompatActivity() {
 
     private lateinit var modules : List<Module>
 
+    private lateinit var binding: ActivityModuleListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_module_list)
+        binding = ActivityModuleListBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
 
         refreshList()
 
-        listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
+        binding.listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
 
             val module = modules[position]
             val intent = Intent(this,ModuleDetailsActivity::class.java)
@@ -30,14 +33,14 @@ class ModuleListActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        registerForContextMenu(listView)
+        registerForContextMenu(binding.listView)
 
         title=getString(R.string.modules)
     }
 
     private fun refreshList(){
 
-        listView.adapter = ArrayAdapter<Module>(this,android.R.layout.simple_list_item_1,modules)
+        binding.listView.adapter = ArrayAdapter<Module>(this,android.R.layout.simple_list_item_1,modules)
     }
 
 
@@ -46,9 +49,9 @@ class ModuleListActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_modules_context,menu)
     }
 
-    override fun onContextItemSelected(item: MenuItem?): Boolean {
+    override fun onContextItemSelected(item: MenuItem): Boolean {
 
-        if (item?.itemId == R.id.menu_module_delete){
+        if (item.itemId == R.id.menu_module_delete){
 
             val info = item.menuInfo as AdapterView.AdapterContextMenuInfo
             val module = modules[info.position]

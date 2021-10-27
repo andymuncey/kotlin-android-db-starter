@@ -8,19 +8,25 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
-import kotlinx.android.synthetic.main.activity_main.*
+import com.tinyappco.assignments.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
 
 
     private lateinit var dataSet : List<Assignment>
 
+    private lateinit var binding: ActivityMainBinding
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
 
-        registerForContextMenu(listView)
+        registerForContextMenu(binding.listView)
 
         title = getString(R.string.deadlines)
     }
@@ -31,8 +37,8 @@ class MainActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if (item?.itemId == R.id.menu_edit_modules){
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_edit_modules){
             val intent = Intent(this,ModuleListActivity::class.java)
             startActivity(intent)
         }
@@ -44,9 +50,9 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_deadlines_context, menu)
     }
 
-    override fun onContextItemSelected(item: MenuItem?): Boolean {
+    override fun onContextItemSelected(item: MenuItem): Boolean {
 
-        if (item?.itemId == R.id.menu_edit){
+        if (item.itemId == R.id.menu_edit){
             val info = item.menuInfo as AdapterView.AdapterContextMenuInfo
             val componentToEdit = dataSet[info.position]
 
@@ -57,7 +63,7 @@ class MainActivity : AppCompatActivity() {
             return true
         }
 
-        if (item?.itemId == R.id.menu_delete){
+        if (item.itemId == R.id.menu_delete){
 
 
 

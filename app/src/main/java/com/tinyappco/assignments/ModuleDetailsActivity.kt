@@ -3,26 +3,30 @@ package com.tinyappco.assignments
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import kotlinx.android.synthetic.main.activity_module_details.*
+import com.tinyappco.assignments.databinding.ActivityModuleDetailsBinding
+
 
 class ModuleDetailsActivity : AppCompatActivity() {
 
     private var existingModule : Module? = null
 
+    private lateinit var binding: ActivityModuleDetailsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_module_details)
+        binding = ActivityModuleDetailsBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
 
 
         val module = intent.getSerializableExtra("module")
         if (module is Module){
             existingModule = module
-            etTitle.setText(module.name)
-            etCode.setText(module.code)
-            etCode.isEnabled = false //cant change code as primary key - delete module instead
-            button.text = getString(R.string.update)
+            binding.etTitle.setText(module.name)
+            binding.etCode.setText(module.code)
+            binding.etCode.isEnabled = false //cant change code as primary key - delete module instead
+            binding.button.text = getString(R.string.update)
             title = "Edit ${module.code}"
         } else {
             title = "Add module"
@@ -34,20 +38,20 @@ class ModuleDetailsActivity : AppCompatActivity() {
 
         val immutableExistingModule = existingModule
         if (immutableExistingModule != null){
-            immutableExistingModule.name = etTitle.text.toString()
+            immutableExistingModule.name = binding.etTitle.text.toString()
 
             finish()
         } else {
 
-            val code = etCode.text.toString()
+            val code = binding.etCode.text.toString()
             if (validateModuleCode(code)) {
-                val module = Module(etCode.text.toString(), etTitle.text.toString())
+                val module = Module(binding.etCode.text.toString(), binding.etTitle.text.toString())
 
 
                 finish()
 
             } else {
-                tvError.text = getString(R.string.invalid_module_code)
+                binding.tvError.text = getString(R.string.invalid_module_code)
             }
         }
     }
