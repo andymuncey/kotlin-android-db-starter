@@ -31,10 +31,13 @@ class ModuleDetailsActivity : AppCompatActivity() {
         } else {
             title = "Add module"
         }
-    }
 
-    @Suppress("UNUSED_PARAMETER")
-    fun addModule(v: View){
+        binding.button.setOnClickListener {
+            addModule()
+        }
+    }
+    
+    fun addModule(){
 
         val immutableExistingModule = existingModule
         if (immutableExistingModule != null){
