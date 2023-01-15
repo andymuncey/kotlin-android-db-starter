@@ -2,9 +2,8 @@ package com.tinyappco.assignments
 
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.tinyappco.assignments.databinding.ActivityAssignmentDetailsBinding
 import java.util.*
 

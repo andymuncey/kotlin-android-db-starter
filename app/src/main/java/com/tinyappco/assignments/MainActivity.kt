@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    fun addAssignment(){
+    private fun addAssignment(){
         val intent = Intent(this, AssignmentDetailsActivity::class.java)
         startActivity(intent)
     }

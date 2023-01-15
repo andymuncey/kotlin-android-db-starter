@@ -1,8 +1,7 @@
 package com.tinyappco.assignments
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.tinyappco.assignments.databinding.ActivityModuleDetailsBinding
 
 
@@ -36,8 +35,8 @@ class ModuleDetailsActivity : AppCompatActivity() {
             addModule()
         }
     }
-    
-    fun addModule(){
+
+    private fun addModule(){
 
         val immutableExistingModule = existingModule
         if (immutableExistingModule != null){

@@ -40,7 +40,7 @@ class ModuleListActivity : AppCompatActivity() {
 
     private fun refreshList(){
 
-        binding.listView.adapter = ArrayAdapter<Module>(this,android.R.layout.simple_list_item_1,modules)
+        binding.listView.adapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,modules)
     }
 
 
