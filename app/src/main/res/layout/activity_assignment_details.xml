@@ -25,8 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnAddModule" android:text="@string/new_module"
-                android:layout_weight="1"
-                android:onClick="addModule"/>
+                android:layout_weight="1" />
     </LinearLayout>
 
 
@@ -85,8 +84,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="9dp"
             app:layout_constraintTop_toBottomOf="@+id/datePicker"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:onClick="addAssignment"/>
+            app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

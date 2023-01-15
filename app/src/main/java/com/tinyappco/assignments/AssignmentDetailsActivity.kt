@@ -49,25 +49,24 @@ class AssignmentDetailsActivity : AppCompatActivity() {
         }
 
 
+        binding.btnAddModule.setOnClickListener {
+            addModule()
+        }
+
+        binding.btnAdd.setOnClickListener {
+            addAssignment()
+        }
 
     }
 
 
-
-
-
-
-
-    @Suppress("UNUSED_PARAMETER")
-    fun addModule(v: View){
+    private fun addModule(){
         val intent = Intent(this,ModuleDetailsActivity::class.java)
         startActivity(intent)
     }
 
 
-
-
-    fun addAssignment(v: View){
+    private fun addAssignment(){
 
 
     }
