@@ -1,6 +1,7 @@
 package com.tinyappco.assignments
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -26,7 +27,12 @@ class AssignmentDetailsActivity : AppCompatActivity() {
 
 
 
-        val assignment = intent.getSerializableExtra("assignment")
+        val assignment = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getSerializableExtra("assignment", Assignment::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            intent.getSerializableExtra("assignment")
+        }
         if (assignment is Assignment){
             existingAssignment = assignment
             binding.etTitle.setText(assignment.title)
