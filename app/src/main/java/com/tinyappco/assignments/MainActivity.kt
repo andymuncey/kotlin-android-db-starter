@@ -29,6 +29,10 @@ class MainActivity : AppCompatActivity() {
         registerForContextMenu(binding.listView)
 
         title = getString(R.string.deadlines)
+
+        binding.btnAddAssignment.setOnClickListener {
+            addAssignment()
+        }
     }
 
 
@@ -77,9 +81,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
-    @Suppress("UNUSED_PARAMETER")
-    fun addAssignment(v: View){
+    fun addAssignment(){
         val intent = Intent(this, AssignmentDetailsActivity::class.java)
         startActivity(intent)
     }
