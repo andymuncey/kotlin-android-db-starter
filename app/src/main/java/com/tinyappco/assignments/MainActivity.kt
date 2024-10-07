@@ -69,9 +69,6 @@ class MainActivity : AppCompatActivity() {
 
         if (item.itemId == R.id.menu_delete){
 
-
-
-
             return true
         }
 
@@ -79,16 +76,10 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
-
     private fun addAssignment(){
         val intent = Intent(this, AssignmentDetailsActivity::class.java)
         startActivity(intent)
     }
-
-
-
-
 
 
 
